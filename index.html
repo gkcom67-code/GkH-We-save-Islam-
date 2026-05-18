@@ -1,297 +1,464 @@
-/* GkH We Save Islam - APK Ready PWA App
-
-Install Command:
-
-1. npm install
-
-
-2. npm run dev
-
-
-
-APK Build:
-
-1. npm install @capacitor/core @capacitor/cli
-
-
-2. npx cap init
-
-
-3. npm run build
-
-
-4. npx cap add android
-
-
-5. npx cap open android
-
-
-
-PWA Files Needed:
-
-manifest.json
-
-service-worker.js
-
-
-Recommended:
-
-Android Studio
-
-Capacitor JS
-
-
-===================================== manifest.json
-
-{ "name": "GkH We Save Islam", "short_name": "We Save Islam", "start_url": ".", "display": "standalone", "background_color": "#07140f", "theme_color": "#1dd189", "orientation": "portrait", "icons": [ { "src": "/icon.png", "sizes": "192x192", "type": "image/png" } ] }
-
-===================================== service-worker.js
-
-self.addEventListener('install', (event) => { console.log('Service Worker Installed'); });
-
-self.addEventListener('fetch', (event) => { event.respondWith(fetch(event.request)); });
-
-===================================== capacitor.config.ts
-
-const config = { appId: 'com.gkh.wesaveislam', appName: 'GkH We Save Islam', webDir: 'dist' }
-
-export default config
-
-===================================== APK BUILD COMMANDS
-
-npm install npm run build npm install @capacitor/core @capacitor/cli npx cap init npx cap add android npx cap copy npx cap open android
-
-===================================== APP FEATURES
-
-✔ Live Clock ✔ Islamic Calendar ✔ Sehri & Iftar Time ✔ Tahajjud Time ✔ Prayer Times ✔ Quran Section ✔ Audio Tilawat ✔ Video Tilawat ✔ Popular Qari List ✔ Countdown Timer ✔ Login System ✔ Bottom Navigation ✔ Splash Style UI ✔ APK Ready ✔ PWA Ready */
-
-export default function GkhWeSaveIslamApp() { return ( <div className="min-h-screen bg-[#07140f] text-white pb-24"> <div className="max-w-md mx-auto p-4">
-
-{/* SPLASH STYLE HEADER */}
-    <div className="bg-gradient-to-br from-[#10271e] to-[#16382b] rounded-3xl p-6 shadow-2xl text-center border border-white/10">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png"
-        alt="Islamic Logo"
-        className="w-20 h-20 mx-auto mb-4"
-      />
-
-      <h1 className="text-3xl font-bold text-[#1dd189]">
-        GkH <span className="text-yellow-400">We Save Islam</span>
-      </h1>
-
-      <p className="mt-3 text-gray-300 text-sm">
-        ইসলামিক জ্ঞান, নামাজের সময় ও কুরআনের সুন্দর প্ল্যাটফর্ম
-      </p>
-
-      <div className="mt-6">
-        <p className="text-yellow-400 text-lg">🕒 বর্তমান সময়</p>
-
-        <div className="text-5xl font-bold mt-2 text-[#1dd189]">
-          10:45:20
-        </div>
-
-        <p className="mt-3 text-gray-200">
-          সোমবার, ১৯ মে ২০২৬
-        </p>
-      </div>
-    </div>
-
-    {/* LOGIN BOX */}
-    <div className="mt-6 bg-[#10271e] rounded-3xl p-5">
-      <h2 className="text-2xl font-bold text-center text-[#1dd189] mb-5">
-        🔐 Login System
-      </h2>
-
-      <div className="space-y-4">
-        <input
-          type="email"
-          placeholder="আপনার ইমেইল"
-          className="w-full bg-[#16382b] rounded-2xl p-4 outline-none"
-        />
-
-        <input
-          type="password"
-          placeholder="পাসওয়ার্ড"
-          className="w-full bg-[#16382b] rounded-2xl p-4 outline-none"
-        />
-
-        <button className="w-full bg-[#1dd189] text-black font-bold py-3 rounded-2xl">
-          লগইন করুন
-        </button>
-      </div>
-    </div>
-
-    {/* ISLAMIC INFO */}
-    <div className="grid grid-cols-2 gap-4 mt-6">
-      <div className="bg-[#10271e] rounded-2xl p-4 text-center">
-        <h2 className="text-yellow-400 text-lg">🌙 ইসলামিক তারিখ</h2>
-        <p className="mt-2 text-lg">10 জিলকদ 1447</p>
-      </div>
-
-      <div className="bg-[#10271e] rounded-2xl p-4 text-center">
-        <h2 className="text-yellow-400 text-lg">📅 ইংরেজি তারিখ</h2>
-        <p className="mt-2 text-lg">১৯ মে ২০২৬</p>
-      </div>
-
-      <div className="bg-[#10271e] rounded-2xl p-4 text-center">
-        <h2 className="text-yellow-400 text-lg">🌅 সেহরি</h2>
-        <p className="mt-2 text-lg">03:58 AM</p>
-      </div>
-
-      <div className="bg-[#10271e] rounded-2xl p-4 text-center">
-        <h2 className="text-yellow-400 text-lg">🌇 ইফতার</h2>
-        <p className="mt-2 text-lg">06:42 PM</p>
-      </div>
-
-      <div className="bg-[#10271e] rounded-2xl p-4 text-center col-span-2">
-        <h2 className="text-yellow-400 text-lg">🤲 তাহাজ্জুদ</h2>
-        <p className="mt-2 text-lg">02:15 AM থেকে ফজর পর্যন্ত</p>
-      </div>
-    </div>
-
-    {/* PRAYER TIMES */}
-    <div className="mt-8 bg-[#10271e] rounded-3xl p-5">
-      <h2 className="text-2xl font-bold text-center text-[#1dd189] mb-5">
-        🕌 নামাজের সময়
-      </h2>
-
-      <div className="space-y-3">
-        {[
-          ['ফজর', '04:02 AM'],
-          ['যোহর', '12:01 PM'],
-          ['আসর', '04:28 PM'],
-          ['মাগরিব', '06:42 PM'],
-          ['ইশা', '08:03 PM']
-        ].map(([name, time]) => (
-          <div
-            key={name}
-            className="flex items-center justify-between bg-[#16382b] rounded-2xl px-4 py-3"
-          >
-            <span className="text-lg">{name}</span>
-            <span className="font-bold text-yellow-400">{time}</span>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-5 bg-[#16382b] rounded-2xl p-4 text-center">
-        <p className="text-yellow-400 text-lg">⏳ পরবর্তী নামাজ</p>
-        <h3 className="text-2xl font-bold mt-2 text-[#1dd189]">
-          মাগরিব শুরু হতে 01:25:15 বাকি
-        </h3>
-      </div>
-    </div>
-
-    {/* QURAN */
-    <div className="mt-8 bg-[#10271e] rounded-3xl p-5 text-center">
-      <h2 className="text-2xl font-bold text-[#1dd189] mb-4">
-        📖 আল-কুরআন শরীফ
-      </h2>
-
-      <div className="bg-[#16382b] rounded-2xl p-5 text-left mb-5">
-        <h3 className="text-yellow-400 text-xl mb-3">
-          সূরা আল-ফাতিহা
-        </h3>
-
-        <p className="text-2xl leading-[60px] text-right">
-          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-          <br />
-          الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
-          <br />
-          الرَّحْمَٰنِ الرَّحِيمِ
-          <br />
-          مَالِكِ يَوْمِ الدِّينِ
-        </p>
-
-        <p className="mt-5 text-gray-300 leading-8">
-          সকল প্রশংসা আল্লাহর জন্য, যিনি সকল বিশ্বের প্রতিপালক।
-        </p>
-      </div>
-
-      <div className="space-y-3">
-        <button className="w-full bg-[#1dd189] text-black font-bold py-3 rounded-2xl">
-          সম্পূর্ণ কুরআন পড়ুন
-        </button>
-
-        <button className="w-full bg-yellow-400 text-black font-bold py-3 rounded-2xl">
-          অডিও তেলাওয়াত শুনুন
-        </button>
-
-        <button className="w-full bg-white text-black font-bold py-3 rounded-2xl">
-          ভিডিও তেলাওয়াত দেখুন
-        </button>
-      </div>
-    </div>
-
-    /* RECITERS */ */}
-    <div className="mt-8 bg-[#10271e] rounded-3xl p-5">
-      <h2 className="text-2xl font-bold text-center text-[#1dd189] mb-5">
-        🎙️ জনপ্রিয় ক্বারী
-      </h2>
-
-      <div className="space-y-3 text-center">
-        {[
-          'মিশারী রাশিদ আল-আফাসি',
-          'আব্দুর রহমান আস-সুদাইস',
-          'মাহের আল মুয়াইক্বিলি',
-          'ইয়াসির আদ-দোসারি',
-          'হাফেজ ত্বাহা'
-        ].map((name) => (
-          <div
-            key={name}
-            className="bg-[#16382b] rounded-2xl py-3"
-          >
-            {name}
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* APK SECTION */}
-    <div className="mt-8 bg-gradient-to-r from-[#1dd189] to-yellow-400 rounded-3xl p-6 text-center text-black">
-      <h2 className="text-3xl font-bold">
-        📲 APK Download
-      </h2>
-
-      <p className="mt-3 font-medium">
-        Android অ্যাপ হিসেবে ব্যবহার করুন
-      </p>
-
-      <button className="mt-5 bg-black text-white px-6 py-3 rounded-2xl font-bold">
-        APK ডাউনলোড
-      </button>
-    </div>
-
-    {/* FOOTER */}
-    <div className="text-center py-8 text-gray-400">
-      <p>© 2026 GkH We Save Islam</p>
-      <p className="text-yellow-400 mt-2">By Habibur Rahman</p>
-    </div>
-  </div>
-
-  {/* BOTTOM NAVIGATION */}
-  <div className="fixed bottom-0 left-0 right-0 bg-[#0b1f18] border-t border-white/10 py-3">
-    <div className="max-w-md mx-auto flex justify-around text-sm">
-      <button className="flex flex-col items-center text-[#1dd189]">
-        <span>🏠</span>
-        <span>হোম</span>
-      </button>
-
-      <button className="flex flex-col items-center text-white">
-        <span>🕌</span>
-        <span>নামাজ</span>
-      </button>
-
-      <button className="flex flex-col items-center text-white">
-        <span>📖</span>
-        <span>কুরআন</span>
-      </button>
-
-      <button className="flex flex-col items-center text-white">
-        <span>🎧</span>
-        <span>তেলাওয়াত</span>
-      </button>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GkH We Save Islam</title>
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#07140f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#07140f;
+font-family:Arial,sans-serif;
+color:white;
+overflow-x:hidden;
+}
+
+::-webkit-scrollbar{
+width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#1dd189;
+border-radius:20px;
+}
+
+/* Glow */
+.glow{
+box-shadow:0 0 20px rgba(29,209,137,0.4);
+}
+
+/* Animation */
+.fade{
+animation:fade 1s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="min-h-screen pb-28 fade">
+
+<!-- TOP -->
+<div class="max-w-md mx-auto p-4">
+
+<!-- HEADER -->
+<div class="bg-gradient-to-br from-[#10271e] to-[#16382b] rounded-[30px] p-6 text-center border border-white/10 glow">
+
+<img
+src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png"
+class="w-24 h-24 mx-auto mb-4"
+alt="logo"
+/>
+
+<h1 class="text-3xl font-bold text-[#1dd189]">
+GkH
+<span class="text-yellow-400">
+We Save Islam
+</span>
+</h1>
+
+<p class="text-gray-300 mt-3 text-sm">
+ইসলামিক জ্ঞান, কুরআন, নামাজের সময় ও তেলাওয়াতের সুন্দর প্ল্যাটফর্ম
+</p>
+
+<!-- CLOCK -->
+<div class="mt-6">
+
+<p class="text-yellow-400 text-lg">
+🕒 বর্তমান সময়
+</p>
+
+<div
+id="clock"
+class="text-5xl font-bold text-[#1dd189] mt-2"
+>
+00:00:00
 </div>
 
-) }
+<p
+id="date"
+class="mt-3 text-gray-300"
+>
+Loading...
+</p>
+
+</div>
+
+</div>
+
+<!-- LOGIN -->
+<div class="mt-6 bg-[#10271e] rounded-[30px] p-5 glow">
+
+<h2 class="text-2xl font-bold text-center text-[#1dd189] mb-5">
+🔐 Login System
+</h2>
+
+<div class="space-y-4">
+
+<input
+type="email"
+placeholder="আপনার ইমেইল"
+class="w-full bg-[#16382b] p-4 rounded-2xl outline-none"
+/>
+
+<input
+type="password"
+placeholder="পাসওয়ার্ড"
+class="w-full bg-[#16382b] p-4 rounded-2xl outline-none"
+/>
+
+<button
+class="w-full bg-[#1dd189] text-black font-bold py-4 rounded-2xl"
+>
+লগইন করুন
+</button>
+
+</div>
+
+</div>
+
+<!-- INFO -->
+<div class="grid grid-cols-2 gap-4 mt-6">
+
+<div class="bg-[#10271e] p-4 rounded-2xl text-center glow">
+<h2 class="text-yellow-400 text-lg">
+🌙 ইসলামিক তারিখ
+</h2>
+
+<p class="mt-2">
+10 জিলকদ 1447
+</p>
+</div>
+
+<div class="bg-[#10271e] p-4 rounded-2xl text-center glow">
+<h2 class="text-yellow-400 text-lg">
+📅 ইংরেজি তারিখ
+</h2>
+
+<p class="mt-2">
+১৯ মে ২০২৬
+</p>
+</div>
+
+<div class="bg-[#10271e] p-4 rounded-2xl text-center glow">
+<h2 class="text-yellow-400 text-lg">
+🌅 সেহরি
+</h2>
+
+<p class="mt-2">
+03:58 AM
+</p>
+</div>
+
+<div class="bg-[#10271e] p-4 rounded-2xl text-center glow">
+<h2 class="text-yellow-400 text-lg">
+🌇 ইফতার
+</h2>
+
+<p class="mt-2">
+06:42 PM
+</p>
+</div>
+
+</div>
+
+<!-- PRAYER -->
+<div class="mt-8 bg-[#10271e] rounded-[30px] p-5 glow">
+
+<h2 class="text-2xl font-bold text-center text-[#1dd189] mb-5">
+🕌 নামাজের সময়
+</h2>
+
+<div class="space-y-3">
+
+<div class="flex justify-between items-center bg-[#16382b] p-4 rounded-2xl">
+<span>ফজর</span>
+<span class="text-yellow-400 font-bold">
+04:02 AM
+</span>
+</div>
+
+<div class="flex justify-between items-center bg-[#16382b] p-4 rounded-2xl">
+<span>যোহর</span>
+<span class="text-yellow-400 font-bold">
+12:01 PM
+</span>
+</div>
+
+<div class="flex justify-between items-center bg-[#16382b] p-4 rounded-2xl">
+<span>আসর</span>
+<span class="text-yellow-400 font-bold">
+04:28 PM
+</span>
+</div>
+
+<div class="flex justify-between items-center bg-[#16382b] p-4 rounded-2xl">
+<span>মাগরিব</span>
+<span class="text-yellow-400 font-bold">
+06:42 PM
+</span>
+</div>
+
+<div class="flex justify-between items-center bg-[#16382b] p-4 rounded-2xl">
+<span>ইশা</span>
+<span class="text-yellow-400 font-bold">
+08:03 PM
+</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- QURAN -->
+<div class="mt-8 bg-[#10271e] rounded-[30px] p-5 glow text-center">
+
+<h2 class="text-2xl font-bold text-[#1dd189] mb-5">
+📖 আল-কুরআন শরীফ
+</h2>
+
+<div class="bg-[#16382b] p-5 rounded-2xl text-right leading-[60px] text-2xl">
+
+بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+<br>
+الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+<br>
+الرَّحْمَٰنِ الرَّحِيمِ
+<br>
+مَالِكِ يَوْمِ الدِّينِ
+
+</div>
+
+<p class="text-gray-300 leading-8 mt-5">
+সকল প্রশংসা আল্লাহর জন্য,
+যিনি সকল বিশ্বের প্রতিপালক।
+</p>
+
+<div class="space-y-3 mt-6">
+
+<button class="w-full bg-[#1dd189] text-black font-bold py-4 rounded-2xl">
+সম্পূর্ণ কুরআন পড়ুন
+</button>
+
+<button class="w-full bg-yellow-400 text-black font-bold py-4 rounded-2xl">
+অডিও তেলাওয়াত শুনুন
+</button>
+
+<button class="w-full bg-white text-black font-bold py-4 rounded-2xl">
+ভিডিও তেলাওয়াত দেখুন
+</button>
+
+</div>
+
+</div>
+
+<!-- RECITERS -->
+<div class="mt-8 bg-[#10271e] rounded-[30px] p-5 glow">
+
+<h2 class="text-2xl text-center font-bold text-[#1dd189] mb-5">
+🎙️ জনপ্রিয় ক্বারী
+</h2>
+
+<div class="space-y-3">
+
+<div class="bg-[#16382b] rounded-2xl p-4 text-center">
+মিশারী রাশিদ আল-আফাসি
+</div>
+
+<div class="bg-[#16382b] rounded-2xl p-4 text-center">
+আব্দুর রহমান আস-সুদাইস
+</div>
+
+<div class="bg-[#16382b] rounded-2xl p-4 text-center">
+মাহের আল মুয়াইক্বিলি
+</div>
+
+<div class="bg-[#16382b] rounded-2xl p-4 text-center">
+ইয়াসির আদ-দোসারি
+</div>
+
+</div>
+
+</div>
+
+<!-- APK -->
+<div class="mt-8 bg-gradient-to-r from-[#1dd189] to-yellow-400 rounded-[30px] p-6 text-center text-black glow">
+
+<h2 class="text-3xl font-bold">
+📲 APK Download
+</h2>
+
+<p class="mt-3 font-medium">
+Android অ্যাপ হিসেবে ব্যবহার করুন
+</p>
+
+<a
+href="gkh-we-save-islam.apk"
+download
+class="inline-block mt-5 bg-black text-white px-8 py-4 rounded-2xl font-bold"
+>
+APK ডাউনলোড
+</a>
+
+<button
+id="installBtn"
+class="hidden mt-4 bg-white text-black px-8 py-4 rounded-2xl font-bold"
+>
+📲 Install App
+</button>
+
+</div>
+
+<!-- FOOTER -->
+<div class="text-center py-8 text-gray-400">
+
+<p>
+© 2026 GkH We Save Islam
+</p>
+
+<p class="text-yellow-400 mt-2">
+By Habibur Rahman
+</p>
+
+</div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="fixed bottom-0 left-0 right-0 bg-[#0b1f18] border-t border-white/10 py-3">
+
+<div class="max-w-md mx-auto flex justify-around">
+
+<button class="flex flex-col items-center text-[#1dd189]">
+<span class="text-xl">🏠</span>
+<span class="text-sm mt-1">
+হোম
+</span>
+</button>
+
+<button class="flex flex-col items-center text-white">
+<span class="text-xl">🕌</span>
+<span class="text-sm mt-1">
+নামাজ
+</span>
+</button>
+
+<button class="flex flex-col items-center text-white">
+<span class="text-xl">📖</span>
+<span class="text-sm mt-1">
+কুরআন
+</span>
+</button>
+
+<button class="flex flex-col items-center text-white">
+<span class="text-xl">🎧</span>
+<span class="text-sm mt-1">
+তেলাওয়াত
+</span>
+</button>
+
+</div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+
+/* CLOCK */
+
+function updateClock(){
+
+const now = new Date();
+
+document.getElementById("clock").innerHTML =
+now.toLocaleTimeString();
+
+document.getElementById("date").innerHTML =
+now.toLocaleDateString("bn-BD",{
+weekday:"long",
+year:"numeric",
+month:"long",
+day:"numeric"
+});
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+/* INSTALL APP */
+
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt",(e)=>{
+
+e.preventDefault();
+
+deferredPrompt = e;
+
+document.getElementById("installBtn")
+.classList.remove("hidden");
+
+});
+
+document.getElementById("installBtn")
+.addEventListener("click", async()=>{
+
+if(deferredPrompt){
+
+deferredPrompt.prompt();
+
+await deferredPrompt.userChoice;
+
+deferredPrompt = null;
+
+}
+
+});
+
+/* SERVICE WORKER */
+
+if("serviceWorker" in navigator){
+
+navigator.serviceWorker.register("service-worker.js");
+
+}
+
+</script>
+
+</body>
+    </html>
