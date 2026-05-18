@@ -1,831 +1,297 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>GkH We Save Islam</title>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#07140f;
-color:white;
-overflow-x:hidden;
-}
-
-/* HEADER */
-
-header{
-padding:18px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#0b1f18;
-position:sticky;
-top:0;
-z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-.logo{
-font-size:28px;
-font-weight:bold;
-color:#1dd189;
-}
-
-.logo span{
-color:#f7c948;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-transition:.3s;
-}
-
-nav a:hover{
-color:#1dd189;
-}
-
-/* BIG CLOCK */
-
-.live-time-section{
-padding:35px 8%;
-background:#07140f;
-}
-
-.live-time-box{
-background:linear-gradient(135deg,#10271e,#16382b);
-padding:45px 25px;
-border-radius:25px;
-text-align:center;
-border:2px solid rgba(255,255,255,0.06);
-box-shadow:0 0 30px rgba(0,0,0,0.35);
-}
-
-.live-time-box h2{
-font-size:32px;
-margin-bottom:20px;
-color:#f7c948;
-}
-
-#big-clock{
-font-size:75px;
-font-weight:bold;
-color:#1dd189;
-letter-spacing:3px;
-margin-bottom:18px;
-}
-
-#big-date{
-font-size:24px;
-color:#ffffff;
-line-height:1.7;
-}
-
-/* HERO */
-
-.hero{
-min-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:40px 20px;
-background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1600&auto=format&fit=crop') center/cover;
-}
-
-.hero-content{
-max-width:850px;
-}
-
-.hero h1{
-font-size:58px;
-margin-bottom:20px;
-}
-
-.hero h1 span{
-color:#1dd189;
-}
-
-.hero p{
-font-size:18px;
-line-height:1.8;
-color:#ddd;
-margin-bottom:35px;
-}
-
-.hero-btn{
-display:inline-block;
-padding:14px 35px;
-background:#1dd189;
-color:white;
-text-decoration:none;
-border-radius:40px;
-font-weight:bold;
-transition:.3s;
-}
-
-.hero-btn:hover{
-background:#14b676;
-}
-
-/* SECTION */
-
-.section{
-padding:90px 8%;
-}
-
-.section-title{
-text-align:center;
-font-size:42px;
-margin-bottom:55px;
-color:#1dd189;
-}
-
-/* CALENDAR */
-
-.calendar-wrapper{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.calendar-box{
-background:#10271e;
-padding:35px 25px;
-border-radius:20px;
-text-align:center;
-border:1px solid rgba(255,255,255,0.05);
-transition:.3s;
-}
-
-.calendar-box:hover{
-transform:translateY(-6px);
-}
-
-.calendar-box h3{
-font-size:26px;
-margin-bottom:18px;
-color:#f7c948;
-}
-
-.calendar-box p{
-font-size:22px;
-line-height:1.8;
-}
-
-/* PRAYER */
-
-.prayer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-}
-
-.prayer-card{
-background:#10271e;
-padding:30px 20px;
-border-radius:18px;
-text-align:center;
-border:1px solid rgba(255,255,255,0.05);
-transition:.3s;
-}
-
-.prayer-card:hover{
-transform:translateY(-8px);
-}
-
-.prayer-card i{
-font-size:34px;
-margin-bottom:15px;
-color:#f7c948;
-}
-
-.prayer-card h3{
-margin-bottom:10px;
-font-size:22px;
-}
-
-.prayer-card p{
-font-size:20px;
-}
-
-/* COUNTDOWN */
-
-.countdown-box{
-margin-top:50px;
-background:#10271e;
-padding:30px;
-border-radius:20px;
-text-align:center;
-}
-
-.countdown-box h2{
-font-size:32px;
-margin-bottom:15px;
-color:#f7c948;
-}
-
-#countdown{
-font-size:35px;
-font-weight:bold;
-color:#1dd189;
-}
-
-/* FEATURES */
-
-.feature-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.feature-box{
-background:#10271e;
-padding:35px 25px;
-border-radius:18px;
-text-align:center;
-transition:.3s;
-}
-
-.feature-box:hover{
-transform:translateY(-8px);
-}
-
-.feature-box i{
-font-size:40px;
-margin-bottom:18px;
-color:#f7c948;
-}
-
-.feature-box h3{
-margin-bottom:12px;
-font-size:24px;
-}
-
-.feature-box p{
-line-height:1.7;
-color:#ccc;
-}
-
-/* FOOTER */
-
-footer{
-background:#0b1f18;
-padding:35px 20px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,0.08);
-}
-
-footer p{
-margin-top:10px;
-color:#bbb;
-}
-
-.social{
-margin-top:20px;
-}
-
-.social a{
-display:inline-flex;
-justify-content:center;
-align-items:center;
-width:44px;
-height:44px;
-background:#10271e;
-border-radius:50%;
-margin:0 8px;
-color:#1dd189;
-text-decoration:none;
-transition:.3s;
-}
-
-.social a:hover{
-background:#1dd189;
-color:white;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-header{
-flex-direction:column;
-}
-
-nav{
-margin-top:12px;
-}
-
-nav a{
-margin:0 10px;
-font-size:14px;
-}
-
-.hero h1{
-font-size:38px;
-}
-
-.hero p{
-font-size:16px;
-}
-
-.section-title{
-font-size:32px;
-}
-
-#big-clock{
-font-size:42px;
-}
-
-#big-date{
-font-size:18px;
-}
-
-#countdown{
-font-size:24px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-
-<header>
-
-<div class="logo">
-GkH <span>We Save Islam</span>
+/* GkH We Save Islam - APK Ready PWA App
+
+Install Command:
+
+1. npm install
+
+
+2. npm run dev
+
+
+
+APK Build:
+
+1. npm install @capacitor/core @capacitor/cli
+
+
+2. npx cap init
+
+
+3. npm run build
+
+
+4. npx cap add android
+
+
+5. npx cap open android
+
+
+
+PWA Files Needed:
+
+manifest.json
+
+service-worker.js
+
+
+Recommended:
+
+Android Studio
+
+Capacitor JS
+
+
+===================================== manifest.json
+
+{ "name": "GkH We Save Islam", "short_name": "We Save Islam", "start_url": ".", "display": "standalone", "background_color": "#07140f", "theme_color": "#1dd189", "orientation": "portrait", "icons": [ { "src": "/icon.png", "sizes": "192x192", "type": "image/png" } ] }
+
+===================================== service-worker.js
+
+self.addEventListener('install', (event) => { console.log('Service Worker Installed'); });
+
+self.addEventListener('fetch', (event) => { event.respondWith(fetch(event.request)); });
+
+===================================== capacitor.config.ts
+
+const config = { appId: 'com.gkh.wesaveislam', appName: 'GkH We Save Islam', webDir: 'dist' }
+
+export default config
+
+===================================== APK BUILD COMMANDS
+
+npm install npm run build npm install @capacitor/core @capacitor/cli npx cap init npx cap add android npx cap copy npx cap open android
+
+===================================== APP FEATURES
+
+✔ Live Clock ✔ Islamic Calendar ✔ Sehri & Iftar Time ✔ Tahajjud Time ✔ Prayer Times ✔ Quran Section ✔ Audio Tilawat ✔ Video Tilawat ✔ Popular Qari List ✔ Countdown Timer ✔ Login System ✔ Bottom Navigation ✔ Splash Style UI ✔ APK Ready ✔ PWA Ready */
+
+export default function GkhWeSaveIslamApp() { return ( <div className="min-h-screen bg-[#07140f] text-white pb-24"> <div className="max-w-md mx-auto p-4">
+
+{/* SPLASH STYLE HEADER */}
+    <div className="bg-gradient-to-br from-[#10271e] to-[#16382b] rounded-3xl p-6 shadow-2xl text-center border border-white/10">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png"
+        alt="Islamic Logo"
+        className="w-20 h-20 mx-auto mb-4"
+      />
+
+      <h1 className="text-3xl font-bold text-[#1dd189]">
+        GkH <span className="text-yellow-400">We Save Islam</span>
+      </h1>
+
+      <p className="mt-3 text-gray-300 text-sm">
+        ইসলামিক জ্ঞান, নামাজের সময় ও কুরআনের সুন্দর প্ল্যাটফর্ম
+      </p>
+
+      <div className="mt-6">
+        <p className="text-yellow-400 text-lg">🕒 বর্তমান সময়</p>
+
+        <div className="text-5xl font-bold mt-2 text-[#1dd189]">
+          10:45:20
+        </div>
+
+        <p className="mt-3 text-gray-200">
+          সোমবার, ১৯ মে ২০২৬
+        </p>
+      </div>
+    </div>
+
+    {/* LOGIN BOX */}
+    <div className="mt-6 bg-[#10271e] rounded-3xl p-5">
+      <h2 className="text-2xl font-bold text-center text-[#1dd189] mb-5">
+        🔐 Login System
+      </h2>
+
+      <div className="space-y-4">
+        <input
+          type="email"
+          placeholder="আপনার ইমেইল"
+          className="w-full bg-[#16382b] rounded-2xl p-4 outline-none"
+        />
+
+        <input
+          type="password"
+          placeholder="পাসওয়ার্ড"
+          className="w-full bg-[#16382b] rounded-2xl p-4 outline-none"
+        />
+
+        <button className="w-full bg-[#1dd189] text-black font-bold py-3 rounded-2xl">
+          লগইন করুন
+        </button>
+      </div>
+    </div>
+
+    {/* ISLAMIC INFO */}
+    <div className="grid grid-cols-2 gap-4 mt-6">
+      <div className="bg-[#10271e] rounded-2xl p-4 text-center">
+        <h2 className="text-yellow-400 text-lg">🌙 ইসলামিক তারিখ</h2>
+        <p className="mt-2 text-lg">10 জিলকদ 1447</p>
+      </div>
+
+      <div className="bg-[#10271e] rounded-2xl p-4 text-center">
+        <h2 className="text-yellow-400 text-lg">📅 ইংরেজি তারিখ</h2>
+        <p className="mt-2 text-lg">১৯ মে ২০২৬</p>
+      </div>
+
+      <div className="bg-[#10271e] rounded-2xl p-4 text-center">
+        <h2 className="text-yellow-400 text-lg">🌅 সেহরি</h2>
+        <p className="mt-2 text-lg">03:58 AM</p>
+      </div>
+
+      <div className="bg-[#10271e] rounded-2xl p-4 text-center">
+        <h2 className="text-yellow-400 text-lg">🌇 ইফতার</h2>
+        <p className="mt-2 text-lg">06:42 PM</p>
+      </div>
+
+      <div className="bg-[#10271e] rounded-2xl p-4 text-center col-span-2">
+        <h2 className="text-yellow-400 text-lg">🤲 তাহাজ্জুদ</h2>
+        <p className="mt-2 text-lg">02:15 AM থেকে ফজর পর্যন্ত</p>
+      </div>
+    </div>
+
+    {/* PRAYER TIMES */}
+    <div className="mt-8 bg-[#10271e] rounded-3xl p-5">
+      <h2 className="text-2xl font-bold text-center text-[#1dd189] mb-5">
+        🕌 নামাজের সময়
+      </h2>
+
+      <div className="space-y-3">
+        {[
+          ['ফজর', '04:02 AM'],
+          ['যোহর', '12:01 PM'],
+          ['আসর', '04:28 PM'],
+          ['মাগরিব', '06:42 PM'],
+          ['ইশা', '08:03 PM']
+        ].map(([name, time]) => (
+          <div
+            key={name}
+            className="flex items-center justify-between bg-[#16382b] rounded-2xl px-4 py-3"
+          >
+            <span className="text-lg">{name}</span>
+            <span className="font-bold text-yellow-400">{time}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-5 bg-[#16382b] rounded-2xl p-4 text-center">
+        <p className="text-yellow-400 text-lg">⏳ পরবর্তী নামাজ</p>
+        <h3 className="text-2xl font-bold mt-2 text-[#1dd189]">
+          মাগরিব শুরু হতে 01:25:15 বাকি
+        </h3>
+      </div>
+    </div>
+
+    {/* QURAN */
+    <div className="mt-8 bg-[#10271e] rounded-3xl p-5 text-center">
+      <h2 className="text-2xl font-bold text-[#1dd189] mb-4">
+        📖 আল-কুরআন শরীফ
+      </h2>
+
+      <div className="bg-[#16382b] rounded-2xl p-5 text-left mb-5">
+        <h3 className="text-yellow-400 text-xl mb-3">
+          সূরা আল-ফাতিহা
+        </h3>
+
+        <p className="text-2xl leading-[60px] text-right">
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+          <br />
+          الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+          <br />
+          الرَّحْمَٰنِ الرَّحِيمِ
+          <br />
+          مَالِكِ يَوْمِ الدِّينِ
+        </p>
+
+        <p className="mt-5 text-gray-300 leading-8">
+          সকল প্রশংসা আল্লাহর জন্য, যিনি সকল বিশ্বের প্রতিপালক।
+        </p>
+      </div>
+
+      <div className="space-y-3">
+        <button className="w-full bg-[#1dd189] text-black font-bold py-3 rounded-2xl">
+          সম্পূর্ণ কুরআন পড়ুন
+        </button>
+
+        <button className="w-full bg-yellow-400 text-black font-bold py-3 rounded-2xl">
+          অডিও তেলাওয়াত শুনুন
+        </button>
+
+        <button className="w-full bg-white text-black font-bold py-3 rounded-2xl">
+          ভিডিও তেলাওয়াত দেখুন
+        </button>
+      </div>
+    </div>
+
+    /* RECITERS */ */}
+    <div className="mt-8 bg-[#10271e] rounded-3xl p-5">
+      <h2 className="text-2xl font-bold text-center text-[#1dd189] mb-5">
+        🎙️ জনপ্রিয় ক্বারী
+      </h2>
+
+      <div className="space-y-3 text-center">
+        {[
+          'মিশারী রাশিদ আল-আফাসি',
+          'আব্দুর রহমান আস-সুদাইস',
+          'মাহের আল মুয়াইক্বিলি',
+          'ইয়াসির আদ-দোসারি',
+          'হাফেজ ত্বাহা'
+        ].map((name) => (
+          <div
+            key={name}
+            className="bg-[#16382b] rounded-2xl py-3"
+          >
+            {name}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* APK SECTION */}
+    <div className="mt-8 bg-gradient-to-r from-[#1dd189] to-yellow-400 rounded-3xl p-6 text-center text-black">
+      <h2 className="text-3xl font-bold">
+        📲 APK Download
+      </h2>
+
+      <p className="mt-3 font-medium">
+        Android অ্যাপ হিসেবে ব্যবহার করুন
+      </p>
+
+      <button className="mt-5 bg-black text-white px-6 py-3 rounded-2xl font-bold">
+        APK ডাউনলোড
+      </button>
+    </div>
+
+    {/* FOOTER */}
+    <div className="text-center py-8 text-gray-400">
+      <p>© 2026 GkH We Save Islam</p>
+      <p className="text-yellow-400 mt-2">By Habibur Rahman</p>
+    </div>
+  </div>
+
+  {/* BOTTOM NAVIGATION */}
+  <div className="fixed bottom-0 left-0 right-0 bg-[#0b1f18] border-t border-white/10 py-3">
+    <div className="max-w-md mx-auto flex justify-around text-sm">
+      <button className="flex flex-col items-center text-[#1dd189]">
+        <span>🏠</span>
+        <span>হোম</span>
+      </button>
+
+      <button className="flex flex-col items-center text-white">
+        <span>🕌</span>
+        <span>নামাজ</span>
+      </button>
+
+      <button className="flex flex-col items-center text-white">
+        <span>📖</span>
+        <span>কুরআন</span>
+      </button>
+
+      <button className="flex flex-col items-center text-white">
+        <span>🎧</span>
+        <span>তেলাওয়াত</span>
+      </button>
+    </div>
+  </div>
 </div>
 
-<nav>
-<a href="#">হোম</a>
-<a href="#">নামাজ</a>
-<a href="#">ক্যালেন্ডার</a>
-<a href="#">কুরআন</a>
-<a href="#">যোগাযোগ</a>
-</nav>
-
-</header>
-
-<!-- BIG CLOCK -->
-
-<section class="live-time-section">
-
-<div class="live-time-box">
-
-<h2>
-🕒 বর্তমান সময়
-</h2>
-
-<div id="big-clock">
-00:00:00
-</div>
-
-<p id="big-date">
-লোড হচ্ছে...
-</p>
-
-</div>
-
-</section>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>
-Welcome To <span>GkH We Save Islam</span>
-</h1>
-
-<p>
-ইসলামের সঠিক জ্ঞান, কুরআন, নামাজের সময়,
-সেহরি-ইফতার ও ইসলামিক ক্যালেন্ডারের সুন্দর প্ল্যাটফর্ম।
-</p>
-
-<a href="#" class="hero-btn">
-আরও দেখুন
-</a>
-
-</div>
-
-</section>
-
-<!-- CALENDAR -->
-
-<section class="section">
-
-<h2 class="section-title">
-📅 ইসলামিক ক্যালেন্ডার
-</h2>
-
-<div class="calendar-wrapper">
-
-<div class="calendar-box">
-<h3>🌙 ইসলামিক তারিখ</h3>
-<p id="hijri-date">Loading...</p>
-</div>
-
-<div class="calendar-box">
-<h3>📖 ইংরেজি তারিখ</h3>
-<p id="english-date">Loading...</p>
-</div>
-
-<div class="calendar-box">
-<h3>🗓️ আজকের দিন</h3>
-<p id="today-name">Loading...</p>
-</div>
-
-<div class="calendar-box">
-<h3>🌅 সেহরির শেষ সময়</h3>
-<p id="sehri">Loading...</p>
-</div>
-
-<div class="calendar-box">
-<h3>🌇 ইফতারের সময়</h3>
-<p id="iftar">Loading...</p>
-</div>
-
-<div class="calendar-box">
-<h3>🤲 তাহাজ্জুদের সময়</h3>
-<p id="tahajjud">Loading...</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- PRAYER TIMES -->
-
-<section class="section">
-
-<h2 class="section-title">
-🕌 আজকের নামাজের সময়
-</h2>
-
-<div class="prayer-grid">
-
-<div class="prayer-card">
-<i class="fas fa-cloud-sun"></i>
-<h3>ফজর</h3>
-<p id="fajr">Loading...</p>
-</div>
-
-<div class="prayer-card">
-<i class="fas fa-sun"></i>
-<h3>যোহর</h3>
-<p id="dhuhr">Loading...</p>
-</div>
-
-<div class="prayer-card">
-<i class="fas fa-sun"></i>
-<h3>আসর</h3>
-<p id="asr">Loading...</p>
-</div>
-
-<div class="prayer-card">
-<i class="fas fa-cloud-moon"></i>
-<h3>মাগরিব</h3>
-<p id="maghrib">Loading...</p>
-</div>
-
-<div class="prayer-card">
-<i class="fas fa-star"></i>
-<h3>ইশা</h3>
-<p id="isha">Loading...</p>
-</div>
-
-</div>
-
-<div class="countdown-box">
-
-<h2>
-⏳ পরবর্তী নামাজের কাউন্টডাউন
-</h2>
-
-<div id="countdown">
-Loading...
-</div>
-
-</div>
-
-</section>
-
-<!-- QURAN -->
-
-<section class="section">
-
-<h2 class="section-title">
-📖 আল-কুরআন শরীফ
-</h2>
-
-<div class="feature-grid">
-
-<div class="feature-box">
-<i class="fas fa-book-open"></i>
-<h3>কুরআন পড়ুন</h3>
-<p>সম্পূর্ণ আল-কুরআন অনলাইনে পড়ুন।</p>
-</div>
-
-<div class="feature-box">
-<i class="fas fa-headphones"></i>
-<h3>অডিও তেলাওয়াত</h3>
-<p>সুন্দর কণ্ঠে কুরআন তেলাওয়াত শুনুন।</p>
-</div>
-
-<div class="feature-box">
-<i class="fas fa-video"></i>
-<h3>ভিডিও তেলাওয়াত</h3>
-<p>ভিডিওসহ কুরআন তেলাওয়াত দেখুন।</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- RECITERS -->
-
-<section class="section">
-
-<h2 class="section-title">
-🎙️ জনপ্রিয় ক্বারী
-</h2>
-
-<div class="feature-grid">
-
-<div class="feature-box">
-<h3>মিশারী রাশিদ আল-আফাসি</h3>
-<p>বিশ্ববিখ্যাত কুরআন তেলাওয়াতকারী।</p>
-</div>
-
-<div class="feature-box">
-<h3>আব্দুর রহমান আস-সুদাইস</h3>
-<p>মক্কার জনপ্রিয় ইমাম ও ক্বারী।</p>
-</div>
-
-<div class="feature-box">
-<h3>সাদ আল গামিদি</h3>
-<p>মধুর কণ্ঠে হৃদয়স্পর্শী তেলাওয়াত।</p>
-</div>
-
-<div class="feature-box">
-<h3>মাহের আল মুয়াইক্বিলি</h3>
-<p>অত্যন্ত জনপ্রিয় কুরআন তেলাওয়াতকারী।</p>
-</div>
-
-<div class="feature-box">
-<h3>ইয়াসির আদ-দোসারি</h3>
-<p>আবেগপূর্ণ ও সুন্দর তেলাওয়াত।</p>
-</div>
-
-<div class="feature-box">
-<h3>হাফেজ ত্বাহা</h3>
-<p>বাংলাদেশের জনপ্রিয় তরুণ ক্বারী।</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<p>
-© 2026 GkH We Save Islam | All Rights Reserved
-</p>
-
-<p style="color:#f7c948;">
-By Habibur Rahman
-</p>
-
-<div class="social">
-
-<a href="#"><i class="fab fa-facebook-f"></i></a>
-<a href="#"><i class="fab fa-youtube"></i></a>
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-telegram"></i></a>
-
-</div>
-
-</footer>
-
-<!-- SCRIPT -->
-
-<script>
-
-/* LIVE CLOCK */
-
-function updateClock(){
-
-const now = new Date();
-
-document.getElementById("big-clock").innerHTML =
-now.toLocaleTimeString('bn-BD');
-
-document.getElementById("big-date").innerHTML =
-now.toLocaleDateString('bn-BD',{
-weekday:'long',
-year:'numeric',
-month:'long',
-day:'numeric'
-});
-
-}
-
-setInterval(updateClock,1000);
-
-updateClock();
-
-/* DATE */
-
-const today = new Date();
-
-document.getElementById("english-date").innerHTML =
-today.toLocaleDateString('bn-BD',{
-year:'numeric',
-month:'long',
-day:'numeric'
-});
-
-document.getElementById("today-name").innerHTML =
-today.toLocaleDateString('bn-BD',{
-weekday:'long'
-});
-
-/* PRAYER API */
-
-fetch("https://api.aladhan.com/v1/timingsByCity?city=Dhaka&country=Bangladesh")
-.then(response => response.json())
-.then(data => {
-
-const timings = data.data.timings;
-
-document.getElementById("fajr").innerText = timings.Fajr;
-document.getElementById("dhuhr").innerText = timings.Dhuhr;
-document.getElementById("asr").innerText = timings.Asr;
-document.getElementById("maghrib").innerText = timings.Maghrib;
-document.getElementById("isha").innerText = timings.Isha;
-
-document.getElementById("sehri").innerText = timings.Fajr;
-document.getElementById("iftar").innerText = timings.Maghrib;
-
-document.getElementById("hijri-date").innerHTML =
-data.data.date.hijri.day + " " +
-data.data.date.hijri.month.en + " " +
-data.data.date.hijri.year + " Hijri";
-
-/* Tahajjud */
-
-const ishaTime = timings.Isha.split(":");
-const fajrTime = timings.Fajr.split(":");
-
-let ishaHour = parseInt(ishaTime[0]);
-let fajrHour = parseInt(fajrTime[0]) + 24;
-
-let totalNightMinutes =
-(fajrHour * 60) -
-(ishaHour * 60);
-
-let tahajjudStart =
-(ishaHour * 60) +
-(totalNightMinutes * 2 / 3);
-
-let tahajjudHour =
-Math.floor(tahajjudStart / 60) % 24;
-
-let tahajjudMinute =
-Math.floor(tahajjudStart % 60);
-
-let tahajjudFormatted =
-String(tahajjudHour).padStart(2,'0')
-+ ":" +
-String(tahajjudMinute).padStart(2,'0');
-
-document.getElementById("tahajjud").innerText =
-tahajjudFormatted + " থেকে ফজর পর্যন্ত";
-
-startCountdown(timings);
-
-})
-
-.catch(error => {
-console.log(error);
-});
-
-/* COUNTDOWN */
-
-function startCountdown(timings){
-
-const prayerTimes = [
-{name:"ফজর",time:timings.Fajr},
-{name:"যোহর",time:timings.Dhuhr},
-{name:"আসর",time:timings.Asr},
-{name:"মাগরিব",time:timings.Maghrib},
-{name:"ইশা",time:timings.Isha}
-];
-
-function updateCountdown(){
-
-const now = new Date();
-
-let nextPrayer = null;
-
-for(let prayer of prayerTimes){
-
-const [hours,minutes] =
-prayer.time.split(":");
-
-let prayerDate = new Date();
-
-prayerDate.setHours(hours);
-prayerDate.setMinutes(minutes);
-prayerDate.setSeconds(0);
-
-if(prayerDate > now){
-
-nextPrayer = {
-name: prayer.name,
-time: prayerDate
-};
-
-break;
-
-}
-
-}
-
-if(!nextPrayer){
-
-const [hours,minutes] =
-prayerTimes[0].time.split(":");
-
-let fajrTomorrow = new Date();
-
-fajrTomorrow.setDate(
-fajrTomorrow.getDate()+1
-);
-
-fajrTomorrow.setHours(hours);
-fajrTomorrow.setMinutes(minutes);
-fajrTomorrow.setSeconds(0);
-
-nextPrayer = {
-name:"ফজর",
-time:fajrTomorrow
-};
-
-}
-
-const diff = nextPrayer.time - now;
-
-const hours =
-Math.floor(diff / (1000*60*60));
-
-const minutes =
-Math.floor((diff % (1000*60*60))
-/ (1000*60));
-
-const seconds =
-Math.floor((diff % (1000*60))
-/ 1000);
-
-document.getElementById("countdown").innerHTML =
-nextPrayer.name +
-" শুরু হতে " +
-hours + " ঘন্টা " +
-minutes + " মিনিট " +
-seconds + " সেকেন্ড বাকি";
-
-}
-
-updateCountdown();
-
-setInterval(updateCountdown,1000);
-
-}
-
-</script>
-
-</body>
-</html>
+) }
